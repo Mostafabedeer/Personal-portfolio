@@ -145,7 +145,7 @@ function CarouselProject() {
                 className='block h-14 w-14 mt-2 text-2xl text-white-50 '
               >
                 <img
-                  src='/public/images/arrowupright.svg'
+                  src='/images/arrowupright.svg'
                   alt={currentSlide.title}
                   className='w-full h-full relative'
                 />
