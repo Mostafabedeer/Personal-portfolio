@@ -22,7 +22,7 @@ export function Alien(props) {
 
   useEffect(() => {
     actions["Armature|ArmatureAction"].play();
-  }, []);
+  }, [actions]);
 
   return (
     <group ref={group} {...props} dispose={null}>
