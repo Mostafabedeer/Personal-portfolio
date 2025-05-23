@@ -15,7 +15,7 @@ import { SkeletonUtils } from "three-stdlib";
 
 export function Alien(props) {
   const group = React.useRef();
-  const { scene, animations } = useGLTF("/models/alien-transformed.glb");
+  const { scene, animations } = useGLTF("/public/models/alien-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
   const { actions } = useAnimations(animations, group);
@@ -26,10 +26,10 @@ export function Alien(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
+      <group name='Sketchfab_Scene'>
         <primitive object={nodes._rootJoint} />
         <skinnedMesh
-          name="Object_9"
+          name='Object_9'
           geometry={nodes.Object_9.geometry}
           material={materials.material}
           skeleton={nodes.Object_9.skeleton}
@@ -37,7 +37,7 @@ export function Alien(props) {
           rotation={[-Math.PI / 2, 0, 0]}
         />
         <skinnedMesh
-          name="Object_10"
+          name='Object_10'
           geometry={nodes.Object_10.geometry}
           material={materials.Outline}
           skeleton={nodes.Object_10.skeleton}
@@ -49,4 +49,4 @@ export function Alien(props) {
   );
 }
 
-useGLTF.preload("/models/alien-transformed.glb");
+useGLTF.preload("/public/models/alien-transformed.glb");
