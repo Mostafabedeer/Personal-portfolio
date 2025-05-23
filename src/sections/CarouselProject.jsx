@@ -25,6 +25,10 @@ function CarouselProject() {
   gsap.registerPlugin(Draggable, InertiaPlugin, _Flip);
   gsap.config({ trialWarn: false });
   useGSAP(() => {
+    // Detect if mobile
+    const isMobile = window.innerWidth <= 768;
+    // Set a higher multiplier for mobile
+    const dragMultiplier = isMobile ? 4 : 1;
     // setup tween for draggable... will likely be a scroll/observer experience in the future
     const items = gsap.utils.toArray(".item");
     const xOffset = 30;
@@ -87,7 +91,7 @@ function CarouselProject() {
     });
 
     function updateProgress() {
-      roloTL.progress(wrapVal(this.x) / c);
+      roloTL.progress(wrapVal(this.x * dragMultiplier) / c);
     }
   }, []);
   return (
