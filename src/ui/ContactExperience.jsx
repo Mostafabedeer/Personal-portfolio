@@ -18,7 +18,7 @@ function ContactExperience() {
           lineHeight={0.5}
           letterSpacing={-0.06}
           size={1.5}
-          font='/public/fonts/Inter_Bold.json'
+          font='/fonts/Inter_Bold.json'
         >
           {`hello`}
           <meshNormalMaterial />
