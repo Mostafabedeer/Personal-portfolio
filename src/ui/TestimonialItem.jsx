@@ -18,7 +18,7 @@ function TestimonialItem({ item, index }) {
           </div>
           <div className='h-24 w-24'>
             <img
-              src='/public/images/quote.png'
+              src='/images/quote.png'
               alt='client2'
               className='w-full h-full'
             />
