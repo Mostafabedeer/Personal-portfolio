@@ -16,7 +16,7 @@ import gsap from "gsap";
 export function HeroBoy(props) {
   const mouse = useRef(new THREE.Vector2());
   const group = useRef();
-  const { scene } = useGLTF("/public/models/mine-transformed.glb");
+  const { scene } = useGLTF("/models/mine-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
   const [isIntroAnimationDone, setIsIntroAnimationDone] = useState(false);
@@ -68,4 +68,4 @@ export function HeroBoy(props) {
   );
 }
 
-useGLTF.preload("/public/models/mine-transformed.glb");
+useGLTF.preload("/models/mine-transformed.glb");

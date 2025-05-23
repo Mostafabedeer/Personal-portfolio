@@ -11,7 +11,7 @@ import { SkeletonUtils } from "three-stdlib";
 
 export function ContactBoy(props) {
   const groupRef = useRef();
-  const { scene } = useGLTF("/public/models/mine-transformed.glb");
+  const { scene } = useGLTF("/models/mine-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
   const { animations } = useFBX("/models/Wave Hip Hop Dance.fbx");
@@ -35,4 +35,4 @@ export function ContactBoy(props) {
   );
 }
 
-useGLTF.preload("/public/models/mine-transformed.glb");
+useGLTF.preload("/models/mine-transformed.glb");
