@@ -6,11 +6,12 @@ Files: mine.glb [11.61MB] > C:\Users\20155\Downloads\studying\Dev-Portfolio\Dev-
 
 import React, { useEffect, useRef } from "react";
 import { useGraph } from "@react-three/fiber";
-import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { useAnimations, useFBX, useGLTF, useProgress } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 
 export function ContactBoy(props) {
-  const groupRef = useRef();
+  const groupRef = useRef(null);
+  const { progress } = useProgress();
   const { scene } = useGLTF("/models/mine-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
@@ -18,8 +19,10 @@ export function ContactBoy(props) {
   animations[0].name = "Dance";
   const action = useAnimations(animations, groupRef);
   useEffect(() => {
-    action.actions["Dance"].play();
-  }, [action]);
+    if (progress === 100) {
+      action.actions["Dance"].play();
+    }
+  }, [action, progress]);
   return (
     <group ref={groupRef} {...props} dispose={null}>
       <primitive object={nodes.Hips} />
