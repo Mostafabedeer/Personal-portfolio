@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import TechStack from "./sections/TechStack";
@@ -22,6 +23,7 @@ function App() {
       <Testimonials />
       <Contact />
       <Footer />
+      <Analytics />
     </div>
   );
 }
