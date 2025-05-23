@@ -72,7 +72,13 @@ function CarouselProject() {
       trigger: ".item",
       inertia: true,
       onDrag: updateProgress,
+      edgeResistance: 0.65,
+      dragClickables: true,
       onThrowUpdate: updateProgress,
+      onDragStart: function (e) {
+        e.preventDefault();
+      },
+
       snap: {
         x: (x) => {
           return Math.round(x / seg) * seg;
